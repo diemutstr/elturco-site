@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+widths=(480 640 960 1200)
+
+cd "$(dirname "$0")/.."
+
+failwith() { printf "error: "; printf "%s\n" "$@"; exit 1; }
+
+mapfile -t images < <(xq -q img -a src < index.html)
+echo "Found ${#images[@]} images"
+
+# sanity check that each is unique,
+# (if not, need to do it once and show some warning)
+all_images=" :: "
+for image in "${images[@]}"; do
+  if [[ "$all_images" = *" :: $image :: "* ]]; then
+    failwith "The same image appears twice, adjust this script!"
+  fi
+  all_images+="$image :: "
+done
+
+for image in "${images[@]}"; do
+  # echo "==== $image ===="
+  if [[ "$image" != *.jpg ]]; then
+    echo "WARNING! Ignoring a non-jpg file: $image"; echo
+    continue
+  fi
+  # identify -format "%w" "$image" # <- slower?
+  info="$(identify "$image")"; rx=" ([0-9]+)x([0-9]+) \\1x\\2\\+[0-9]+\\+[0-9]+ "
+  if [[ ! "$info" =~ $rx ]]; then failwith "unexpected info for $image: $info"; fi
+  orig_width="${BASH_REMATCH[1]}"
+  # echo "Orig Width: $orig_width"
+  out_widths=() srcset=""
+  for width in "${widths[@]}"; do
+    if [[ "$width" -gt "$orig_width" ]]; then continue; fi
+    resized="${image%.*}-${width}w.jpg"
+    convert "$image" -resize "${width}x" "$resized"
+    out_widths+=("$width")
+    if [[ -n "$srcset" ]]; then srcset+=", "; fi
+    srcset+="$resized ${width}w"
+  done
+  # printf "Output widths:"; printf " %s" "${out_widths[@]}"; echo
+  orig_srcset="$(xq -q 'img[src="'"$image"'"]' -a srcset < index.html)"
+  if [[ -z "$orig_srcset" ]]; then echo "$image => no srcset!"; fi
+  if [[ "$srcset" != "$orig_srcset" ]]; then
+    echo "$image => srcset=\"$srcset\""
+  fi
+done
