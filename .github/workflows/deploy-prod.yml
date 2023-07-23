@@ -1,24 +1,22 @@
-name: Deploy to GH Pages
+name: Deploy to Production
 
 on:
   workflow_dispatch:
-  push: { branches: ["main"] }
+  push: { branches: ["prod"] }
 
-permissions: { contents: read, pages: write, id-token: write }
+permissions: { contents: read, id-token: write }
 
 concurrency:
-  group: "pages"
+  group: "prod"
   cancel-in-progress: false
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Install xq
+      - name: Install ncftp and xq
         run: |
+          sudo apt install ncftp
           repo="sibprogrammer/xq"; base="https://github.com/$repo/releases"
           v="$(curl -Is "$base/latest" | grep '^location')"
           v="${v#*"$repo/releases/tag/v"}"; v="${v%$'\r'}"
@@ -28,13 +26,13 @@ jobs:
           xq --version
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
       - name: Generate all image sizes
         run: ./new/img/make-sizes
-      - name: Upload artifacts
-        uses: actions/upload-pages-artifact@v2
-        with: { path: '.' }
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Deploy to FTP server
+        run: |
+          cd new
+          ncftpput -u "$FTP_USER" -p "$FTP_PASSWD" -m -T xfer- -R "$FTP_HOST" /new *
+        env:
+          FTP_HOST:   ${{ secrets.FTP_HOST }}
+          FTP_PASSWD: ${{ secrets.FTP_PASSWD }}
+          FTP_USER:   ${{ secrets.FTP_USER }}
