@@ -18,7 +18,6 @@
       --hicolor: #f00;
       --linkcolor: #48f;
       --top-height: 8vh;
-      --font-normal: 30px;
     }
 
     :root {
@@ -42,7 +41,7 @@
 
     .swiper-slide {
       box-sizing: border-box;
-      font-size: var(--font-normal);
+      font-size: var(--step-0);
       padding: 10px 0;
       background-color: var(--bgcolor);
       display: grid;
@@ -59,7 +58,7 @@
     }
     ul.header li {
       padding: 2px 4px; display: inline; float: left; text-wrap: nowrap;
-      background-color: #000a;
+      background-color: #000a; font-size: var(--step-s1)
     }
     ul.header li:last-child { color: var(--hicolor); }
 
@@ -77,19 +76,32 @@
 
     lite-youtube { width: 100%; margin: auto; }
 
-    h1, h2, h3 { font-weight: normal; font-style: italic; }
+    /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1920,32,1.333,5,2,2200-3400-1920&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    :root {
+      --step-s2: clamp(0.78rem, calc(0.71rem + 0.34vw), 1.13rem);
+      --step-s1: clamp(0.94rem, calc(0.82rem + 0.56vw), 1.50rem);
+      --step-0:  clamp(1.13rem, calc(0.95rem + 0.88vw), 2.00rem);
+      --step-b1: clamp(1.35rem, calc(1.09rem + 1.32vw), 2.67rem);
+      --step-b2: clamp(1.62rem, calc(1.23rem + 1.93vw), 3.55rem);
+      --step-b3: clamp(1.94rem, calc(1.39rem + 2.79vw), 4.74rem);
+      --step-b4: clamp(2.33rem, calc(1.54rem + 3.98vw), 6.31rem);
+      --step-b5: clamp(2.80rem, calc(1.68rem + 5.62vw), 8.42rem);
+    }
+
+    h1, h2, h3 { font-weight: normal; font-style: italic; text-wrap: balance; }
     h1:not(:first-child), h2:not(:first-child), h3:not(:first-child) { margin-top: 2em; }
-    h1 { font-size: 200%; color: var(--hicolor); }
-    h2 { font-size: 150%; }
-    h3 { font-size: 125%; }
+    h1 { font-size: var(--step-b2); color: var(--hicolor); }
+    h2 { font-size: var(--step-b1); }
 
-    .tinier  { font-size:  62.5%; }
-    .smaller { font-size:  75%; }
-    .bigger  { font-size: 150%; }
-    .huger   { font-size: 200%; }
-    .hilite  { color: var(--hicolor); }
+    .tinier  { font-size: var(--step-s2); }
+    .smaller { font-size: var(--step-s1); }
+    .normal  { font-size: var(--step-0);  }
+    .bigger  { font-size: var(--step-b1); }
+    .huger   { font-size: var(--step-b3); }
 
-    .left { text-align: left; }
+    .hilite { color: var(--hicolor); }
+    .left   { text-align: left; }
+    .nowrap { white-space: nowrap; }
 
     .contents, .long-contents, .full-contents {
       width: 75%;
@@ -108,7 +120,7 @@
     .full-width { position: absolute; left: 0; right: 0; width: 100%; }
 
     .bottom-caption {
-      font-size: 62.5%; font-style: italic;
+      font-size: var(--step-s2); font-style: italic;
       text-align: left; align-self: end;
       z-index: 1;
       background-color: #0008; padding: 5px 10px;
@@ -153,9 +165,14 @@
 <div class="swiper-slide">
   <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
   <div class="bigger hilite">
-    <p class="smaller">In collaboration with:</p>
-    <p>Eli Barzilay, Zhiling Huang, Xiangqing Guan,<br>
-       Jianchi Zhou, Hongyin Luo</p>
+    <p class="normal">In collaboration with:</p>
+    <p>
+      <span class="nowrap">Eli Barzilay,</span>
+      <span class="nowrap">Zhiling Huang,</span>
+      <span class="nowrap">Xiangqing Guan,</span>
+      <span class="nowrap">Jianchi Zhou,</span>
+      <span class="nowrap">Hongyin Luo</span>
+    </p>
     <p>Northeastern University</p>
   </div>
 </div>
@@ -405,23 +422,24 @@
   <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
   <div class="huger hilite">
     <p>EL TURCO / Conversations with an AI</p>
-    <p class="smaller">by</p>
+    <p class="bigger">by</p>
     <p>Diemut Strebe</p>
   </div>
 </div>
 
 <div class="swiper-slide">
   <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
-  <div class="bigger hilite">
-    <p class="smaller">In collaboration with:</p>
-    <p>
-      AI Specialist Steve DiPaola:<br>
+  <div class="normal hilite">
+    <p>In collaboration with:</p>
+    <p class="bigger">
+      AI Specialist <span class="nowrap">Steve DiPaola:</span><br>
       AI drawing & languages systems
     </p>
-    <p class="smaller">Gaines Semler: voice-acting Socrates</p>
-    <p class="smaller">
-      With many thanks to Gary Marcus for AI consulting and to the Aichi
-      Triennale for their support.
+    <p><span class="nowrap">Gaines Semler:</span> voice-acting Socrates</p>
+    <p>
+      With many thanks to <span class="nowrap">Gary Marcus</span> for AI
+      consulting and to the <span class="nowrap">Aichi Triennale</span> for
+      their support.
     </p>
   </div>
 </div>
