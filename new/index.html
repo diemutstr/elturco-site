@@ -117,7 +117,8 @@
       grid-area: 1 / 1 / -1 / -1;
     }
 
-    .full-width { position: absolute; left: 0; right: 0; width: 100%; }
+    .full-width, .full-cover { position: absolute; left: 0; right: 0; width: 100%; }
+    .full-cover { height: 100%; object-fit: cover; }
 
     .bottom-caption {
       font-size: var(--step-s2); font-style: italic;
@@ -300,12 +301,10 @@
 
 <div class="swiper-slide">
   <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Technical</li></ul>
-  <div class="long-contents">
-    <img src="img/face-capture-still.jpg" style="width: 100%;"
-         title="Face capture on a phone"
-         srcset="img/face-capture-still-480w.jpg 480w, img/face-capture-still-640w.jpg 640w, img/face-capture-still-960w.jpg 960w, img/face-capture-still-1200w.jpg 1200w" />
-    <p class="bottom-caption">El Turco / Living Theater / Face Capture Still</p>
-  </div>
+  <img src="img/face-capture-still.jpg" class="full-cover" style="object-position: 30% 50%;"
+       title="Face capture on a phone"
+       srcset="img/face-capture-still-480w.jpg 480w, img/face-capture-still-640w.jpg 640w, img/face-capture-still-960w.jpg 960w, img/face-capture-still-1200w.jpg 1200w" />
+  <p class="bottom-caption">El Turco / Living Theater / Face Capture Still</p>
 </div>
 
 <div class="swiper-slide">
