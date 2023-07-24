@@ -41,12 +41,13 @@
     .swiper-slide {
       box-sizing: border-box;
       font-size: var(--font-normal);
-      padding: 10px 30px;
+      padding: 10px 0;
       background-color: var(--bgcolor);
       display: grid;
       grid-template-columns: 100%;
       grid-template-rows: var(--top-height) 1fr;
       place-items: center;
+      overflow: hidden;
     }
     .swiper-slide > * { text-align: center; }
 
@@ -55,12 +56,10 @@
       grid-area: 1 / 1 / 2 / 2; z-index: 1;
     }
     ul.header li {
-      padding: 5px 10px; display: inline; float: left;
+      padding: 2px 4px; display: inline; float: left; text-wrap: nowrap;
       background-color: #000a;
     }
-    ul.header li:first-child { margin-left: 0; }
-    ul.header li:last-child { margin-right: 0; }
-    ul.header li:nth-child(3) { color: var(--hicolor); }
+    ul.header li:last-child { color: var(--hicolor); }
 
     dl > dt { margin-top: 40px; font-style: italic; }
     dl > dd { margin-bottom: 40px; margin-inline-start: 20px; }
@@ -135,14 +134,14 @@
 <body><div class="swiper"><div class="swiper-wrapper">
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO</li></ul>
   <div style="position: relative; top: -20px; font-size: 20vw; font-weight: bolder;
               overflow-y: hidden; color: var(--hicolor); line-height: 18vw;"
        >EL<br>TURCO</div>
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
   <div class="huger hilite">
     <p style="font-size: 125%;">INTERACTIVE LIVE DIALOGUES<br>HUMAN vs AI MACHINE</p>
     <p style="font-size: 125%;">An Artwork by Diemut Strebe</p>
@@ -150,7 +149,7 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
   <div class="bigger hilite">
     <p class="smaller">In collaboration with:</p>
     <p>Eli Barzilay, Zhiling Huang, Xiangqing Guan,<br>
@@ -160,7 +159,7 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater / View</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / View</li></ul>
   <div class="full-width">
     <img src="img/intro.jpg" style="width: 100%;"
          title="El Turco over museum couch"
@@ -170,9 +169,9 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Concept</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Concept</li></ul>
   <div class="long-contents left">
-    <h1 class="hilite">EL TURCO</h1>
+    <h1>EL TURCO</h1>
     <p>
       El Turco presents a large-scale (8x3m) interactive video installation in
       real time. We see two digital AI avatars in animated hand-drawing
@@ -219,47 +218,52 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater / Live#1</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / Live#1</li></ul>
   <div class="full-width">
-    <lite-youtube videotitle="EL TURCO : Living Theater #1 - LIVE DIALOGUE HUMAN vs AI MACHINE"
-                  videoid="yO8TfQ5sOy4" aspectratio="1100 / 619" nocookie></lite-youtube>
+    <lite-youtube
+      videotitle="EL TURCO : Living Theater #1 - LIVE DIALOGUE HUMAN vs AI MACHINE"
+      videoid="yO8TfQ5sOy4" aspectratio="1100 / 619" nocookie></lite-youtube>
   </div>
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater / Live#2</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / Live#2</li></ul>
   <div class="full-width">
-    <lite-youtube videotitle="EL TURCO : Living Theater #2 - LIVE DIALOGUE HUMAN vs AI MACHINE"
-                  videoid="WiZAs6xs8II" aspectratio="1100 / 619" nocookie></lite-youtube>
+    <lite-youtube
+      videotitle="EL TURCO : Living Theater #2 - LIVE DIALOGUE HUMAN vs AI MACHINE"
+      videoid="WiZAs6xs8II" aspectratio="1100 / 619" nocookie></lite-youtube>
   </div>
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater / Live#3</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / Live#3</li></ul>
   <div class="full-width">
-    <lite-youtube videotitle="EL TURCO : Living Theater #3 - LIVE DIALOGUE HUMAN vs AI MACHINE"
-                  videoid="VQ7nbzVG_H4" aspectratio="1100 / 619" nocookie></lite-youtube>
+    <lite-youtube
+      videotitle="EL TURCO : Living Theater #3 - LIVE DIALOGUE HUMAN vs AI MACHINE"
+      videoid="VQ7nbzVG_H4" aspectratio="1100 / 619" nocookie></lite-youtube>
   </div>
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater / Live#4</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / Live#4</li></ul>
   <div class="full-width">
-    <lite-youtube videotitle="EL TURCO / Living Theater #4 - LIVE DIALOGUES HUMAN vs AI MACHINE"
-                  videoid="ZG98LgiBud0" aspectratio="1100 / 619" nocookie></lite-youtube>
+    <lite-youtube
+      videotitle="EL TURCO : Living Theater #4 - LIVE DIALOGUES HUMAN vs AI MACHINE"
+      videoid="ZG98LgiBud0" aspectratio="1100 / 619" nocookie></lite-youtube>
   </div>
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater / Live#5</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / Live#5</li></ul>
   <div class="full-width">
-    <lite-youtube videotitle="EL TURCO : Living Theater #5 - LIVE DIALOGUE HUMAN vs AI MACHINE"
-                  videoid="kQD9e-V8ozQ" aspectratio="1100 / 619" nocookie></lite-youtube>
+    <lite-youtube
+      videotitle="EL TURCO : Living Theater #5 - LIVE DIALOGUE HUMAN vs AI MACHINE"
+      videoid="kQD9e-V8ozQ" aspectratio="1100 / 619" nocookie></lite-youtube>
   </div>
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
   <img src="img/live-view.jpg" class="full-width"
        title="Live conversation of a person from the audience"
        srcset="img/live-view-480w.jpg 480w, img/live-view-640w.jpg 640w, img/live-view-960w.jpg 960w" />
@@ -276,27 +280,28 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Technical</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Technical</li></ul>
   <div class="long-contents">
     <img src="img/face-capture-still.jpg" style="width: 100%;"
          title="Face capture on a phone"
          srcset="img/face-capture-still-480w.jpg 480w, img/face-capture-still-640w.jpg 640w, img/face-capture-still-960w.jpg 960w, img/face-capture-still-1200w.jpg 1200w" />
-    <p>El Turco / Living Theater / Face Capture Still</p>
+    <p class="bottom-caption">El Turco / Living Theater / Face Capture Still</p>
   </div>
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Technical</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Technical</li></ul>
   <div class="full-width">
-    <lite-youtube videotitle="Live Face Capture EL TURCO : Living Theater - LIVE DIALOGUE HUMAN vs AI MACHINE"
-                  videoid="V25qy9y4HpY" aspectratio="1100 / 619" nocookie></lite-youtube>
+    <lite-youtube
+      videotitle="Live Face Capture EL TURCO : Living Theater - LIVE DIALOGUE HUMAN vs AI MACHINE"
+      videoid="V25qy9y4HpY" aspectratio="1100 / 619" nocookie></lite-youtube>
   </div>
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Technical</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Technical</li></ul>
   <div class="long-contents left">
-    <h1 class="hilite">Technical Description of the Live Dialogue System</h1>
+    <h1>Technical Description of the Live Dialogue System</h1>
     <p>
       The avatar called Socrates, (to the right, presented in different gender and racial
       formats) is operated directly and live by a human hidden in the system. The actor’s
@@ -317,7 +322,7 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
   <img src="img/socrates-1.jpg" class="full-width"
        style="object-fit: cover; width: 80%; margin: auto;"
        title="One of the Socrates 3d models"
@@ -326,7 +331,7 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
   <img src="img/socrates-2.jpg" class="full-width"
        style="object-fit: cover; width: 80%; margin: auto;"
        title="One of the Socrates 3d models"
@@ -335,7 +340,7 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
   <img src="img/socrates-3.jpg" class="full-width"
        style="object-fit: cover; width: 80%; margin: auto;"
        title="One of the Socrates 3d models"
@@ -344,7 +349,7 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Living Theater</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
   <img src="img/von-kempelen.jpg" class="full-width"
        style="object-fit: cover; width: 80%; margin: auto;"
        title="The Von Kempelen 3d model"
@@ -353,7 +358,7 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / On AI</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / On AI</li></ul>
   <div class="long-contents left">
     <h1>
       Some thoughts on the current state of AI Large Language Models and AI
@@ -394,12 +399,8 @@
   </div>
 </div>
 
-
-
-
-
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Conversations with an AI</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
   <div class="huger hilite">
     <p>EL TURCO / Conversations with an AI</p>
     <p class="smaller">by</p>
@@ -408,7 +409,7 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Conversations with an AI</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
   <div class="bigger hilite">
     <p class="smaller">In collaboration with:</p>
     <p>
@@ -424,9 +425,9 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO</li></ul>
   <div class="contents left">
-    <h1 class="hilite">Conversations with an AI</h1>
+    <h1>Conversations with an AI</h1>
     <p>
       <em>Conversations with an AI</em> are 17 live recorded
       dialogues of the artist with an AI text generating machine in the summer
@@ -440,7 +441,7 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Conversations with an AI</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
   <img src="img/inst-1.jpg" class="full-width"
        title="Installation View at Aichi Triennale 2022"
        srcset="img/inst-1-480w.jpg 480w, img/inst-1-640w.jpg 640w, img/inst-1-960w.jpg 960w, img/inst-1-1200w.jpg 1200w" />
@@ -450,7 +451,7 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Conversations with an AI</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
   <img src="img/inst-2.jpg" class="full-width"
        title="Installation View at Aichi Triennale 2022"
        srcset="img/inst-2-480w.jpg 480w, img/inst-2-640w.jpg 640w, img/inst-2-960w.jpg 960w, img/inst-2-1200w.jpg 1200w" />
@@ -460,9 +461,9 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO / Conversations with an AI</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
   <div class="long-contents">
-    <h1 class="hilite">Collection of 9 dialogues of 17</h1>
+    <h1>Collection of 9 dialogues of 17</h1>
     <lite-youtube videotitle="#4"  videoid="nNo0PEK_JNo" aspectratio="1280 / 336" nocookie></lite-youtube>
     <lite-youtube videotitle="#2"  videoid="wBpcQXlIC5k" aspectratio="1280 / 336" nocookie></lite-youtube>
     <lite-youtube videotitle="#10" videoid="Jhq3n0xeVcg" aspectratio="1280 / 336" nocookie></lite-youtube>
@@ -476,10 +477,10 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO</li></ul>
   <div class="long-contents left">
-    <h1 class="hilite">Artist</h1>
-    <img src="img/artist-web.jpg" style="float: right; width: 60%; margin: 20px;"
+    <h1>Artist</h1>
+    <img src="img/artist-web.jpg" style="float: right; width: 50%; margin: 20px;"
          title="Picture of the artist"
          srcset="img/artist-web-480w.jpg 480w, img/artist-web-640w.jpg 640w, img/artist-web-960w.jpg 960w, img/artist-web-1200w.jpg 1200w" />
     <p>
@@ -507,9 +508,9 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO</li></ul>
   <div class="long-contents left">
-    <h1 class="hilite">Collaborators</h1>
+    <h1>Collaborators</h1>
     <dl>
       <dt>Eli Barzilay, PhD</dt>
       <dd>
@@ -552,9 +553,9 @@
 </div>
 
 <div class="swiper-slide">
-  <ul class="header"><li>Diemut Strebe</li><li>/</li><li>EL TURCO</li></ul>
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO</li></ul>
   <div class="contents">
-    <h1 class="hilite">Contact</h1>
+    <h1>Contact</h1>
     <p>
       <a href="mailto:dstr.site@gmail.com">dstr.site@gmail.com</a>
     </p>
