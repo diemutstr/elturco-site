@@ -585,10 +585,12 @@
 </body>
 
 <script>
+  const isMobile = !matchMedia("(any-pointer:fine)").matches;
   // make up slide numbers
   document.querySelectorAll("div.swiper-slide").forEach((d, n) => d.dataset.hash = n + 1);
-  // mark all text nodes to not be swipable
-  { const skip = "HEAD TITLE STYLE SCRIPT".split(/\s+/);
+  // if we have a mouse => mark all text nodes to not be swipable
+  if (!isMobile) {
+    const skip = "HEAD TITLE STYLE SCRIPT".split(/\s+/);
     const walker = document.createTreeWalker(
       document, NodeFilter.SHOW_TEXT, node =>
       (skip.includes(node.parentElement?.tagName) || !node.data.match(/\S/))
@@ -608,7 +610,10 @@
     pagination: { el: "#pagination", clickable: true },
     keyboard: { enabled: true, pageUpDown: false },
     centeredSlides: true,
+    touchAngle: 15,
     longSwipesRatio: 0.25,
+    simulateTouch: !isMobile,
+    cssMode: isMobile, // makes scrolling up/down and slides sane
     hashNavigation: { enabled: true, replaceState: true, watchState: true, },
     initialSlide: 0,
     // effect: "fade",
