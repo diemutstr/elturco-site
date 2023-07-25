@@ -145,6 +145,12 @@
     }
     .download-link:hover, .download-link:active { background-color: var(--hicolor); }
 
+    .hacked-long-caption { width: min(100%, 80ch); }
+    @media (max-width: 50ch) {
+      .hacked-long-caption { line-height: 1.75ex; width: min(100%, 70ch); }
+      .hacked-long-caption > span:not(:first-child) { font-size: 82.5%; }
+    }
+
   </style>
 </head>
 
@@ -289,11 +295,13 @@
   <img src="img/live-view.jpg" class="full-width"
        title="Live conversation of a person from the audience"
        srcset="img/live-view-480w.jpg 480w, img/live-view-640w.jpg 640w, img/live-view-960w.jpg 960w" />
-  <p class="bottom-caption" style="line-height: 1.75ex; width: min(100%, 70ch);">
-    Live conversation of a person from the audience (to the right with
-    microphone) with the AI machine called Von Kempelen to the left (red
-    avatar).
-    <span style="font-size: 82.5%;">
+  <p class="bottom-caption hacked-long-caption">
+    <span>
+      Live conversation of a person from the audience (to the right with
+      microphone) with the AI machine called Von Kempelen to the left (red
+      avatar).
+    </span>
+    <span>
       With her audio input (speech) she is operating and controlling the audio
       output of the green avatar, called Socrates. The speaker’s audio also
       controls the facial expressions, body movements and the running text (on
