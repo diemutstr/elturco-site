@@ -48,12 +48,18 @@
       grid-template-columns: 100%;
       grid-template-rows: var(--top-height) 1fr;
       place-items: center;
-      overflow: hidden;
+      overflow-x: hidden; /* avoid slide spillage */
     }
     .swiper-slide > * { text-align: center; }
+    /* hide scrollbar, but allow scrolling */
+    .swiper-slide { scrollbar-width: none; }
+    .swiper-slide::-webkit-scrollbar {
+      width: 0px; margin: 0; padding: 0;
+      display: none;
+    }
 
     ul.header {
-      list-style: none; margin: 0; width: 100%; align-self: start;
+      list-style: none; margin: 0 auto 0 0; align-self: start;
       grid-area: 1 / 1 / 2 / 2; z-index: 1;
     }
     ul.header li {
