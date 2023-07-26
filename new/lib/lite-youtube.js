@@ -102,17 +102,6 @@ export class LiteYTEmbed extends HTMLElement {
           object-fit: cover;
         }
 
-        #frame::before {
-          content: '';
-          display: block;
-          position: absolute;
-          top: 0;
-          background-image: linear-gradient(180deg, #111 -20%, transparent 90%);
-          height: 60px;
-          width: 100%;
-          z-index: 1;
-        }
-
         #playButton {
           width: 68px;
           height: 48px;
