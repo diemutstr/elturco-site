@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Diemut Strebe / EL TURCO</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <meta name="description" content="Diemut Strebe / EL TURCO" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=12, user-scalable=yes" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <!-- <link rel="stylesheet" href="lib/swiper-bundle.min.css" /> -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <!-- <script src="lib/swiper-bundle.min.js"></script> -->
+  <script type="module" src="lib/lite-youtube.js"></script>
+  <style>
+    body {
+      --bgcolor: #000;
+      --fgcolor: #fff;
+      --hicolor: #f00;
+      --linkcolor: #48f;
+      --top-height: 8vh;
+    }
+
+    :root {
+      --swiper-theme-color: #ccbc;
+      --swiper-pagination-bullet-inactive-color: #ccb;
+      --swiper-pagination-bullet-size: min(1.5vw, 15px);
+      --swiper-pagination-bullet-horizontal-gap: min(1vw, 10px);
+    }
+
+    html, body { width: 100%; height: 100%; }
+
+    body {
+      font-family: Verdana, Arial, sans-serif;
+      color: var(--fgcolor);
+      background-color: var(--bgcolor);
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper { width: 100%; height: 100%; }
+
+    .swiper-slide {
+      box-sizing: border-box;
+      font-size: var(--step-0);
+      padding: 10px 0;
+      background-color: var(--bgcolor);
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: var(--top-height) 1fr;
+      place-items: center;
+      overflow-x: hidden; /* avoid slide spillage */
+    }
+    .swiper-slide > * { text-align: center; }
+    /* hide scrollbar, but allow scrolling */
+    .swiper-slide { scrollbar-width: none; }
+    .swiper-slide::-webkit-scrollbar {
+      width: 0px; margin: 0; padding: 0;
+      display: none;
+    }
+
+    ul.header {
+      list-style: none; margin: 0 auto 0 0; align-self: start;
+      grid-area: 1 / 1 / 2 / 2; z-index: 1;
+    }
+    ul.header li {
+      padding: 2px 4px; display: inline; float: left; text-wrap: nowrap;
+      background-color: #000a; font-size: var(--step-s1)
+    }
+    ul.header li:last-child { color: var(--hicolor); }
+
+    dl > dt { margin-top: 40px; font-style: italic; }
+    dl > dd { margin-bottom: 40px; margin-inline-start: 20px; }
+
+    a[href] {
+      text-decoration: none;
+      color: var(--linkcolor); opacity: 0.75;
+      transition: all 0.2s ease-in-out;
+    }
+    a[href]:active, a[href]:hover, a[href]:focus {
+      opacity: 1;
+    }
+
+    lite-youtube { width: 100%; margin: auto; }
+
+    /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1920,32,1.333,5,2,2200-3400-1920&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    :root {
+      --step-s2: clamp(0.78rem, calc(0.71rem + 0.34vw), 1.13rem);
+      --step-s1: clamp(0.94rem, calc(0.82rem + 0.56vw), 1.50rem);
+      --step-0:  clamp(1.13rem, calc(0.95rem + 0.88vw), 2.00rem);
+      --step-b1: clamp(1.35rem, calc(1.09rem + 1.32vw), 2.67rem);
+      --step-b2: clamp(1.62rem, calc(1.23rem + 1.93vw), 3.55rem);
+      --step-b3: clamp(1.94rem, calc(1.39rem + 2.79vw), 4.74rem);
+      --step-b4: clamp(2.33rem, calc(1.54rem + 3.98vw), 6.31rem);
+      --step-b5: clamp(2.80rem, calc(1.68rem + 5.62vw), 8.42rem);
+    }
+
+    h1, h2, h3 { font-weight: normal; font-style: italic; text-wrap: balance; }
+    h1:not(:first-child), h2:not(:first-child), h3:not(:first-child) { margin-top: 2em; }
+    h1 { font-size: var(--step-b2); color: var(--hicolor); }
+    h2 { font-size: var(--step-b1); }
+
+    .tinier  { font-size: var(--step-s2); }
+    .smaller { font-size: var(--step-s1); }
+    .normal  { font-size: var(--step-0);  }
+    .bigger  { font-size: var(--step-b1); }
+    .huger   { font-size: var(--step-b3); }
+
+    .hilite { color: var(--hicolor); }
+    .left   { text-align: left; }
+    .nowrap { white-space: nowrap; }
+
+    .contents, .long-contents {
+      width: 75%;
+      margin: 1em;
+    }
+
+    .long-contents {
+      padding-right: 1em;
+      height: 100%; overflow-y: auto;
+    }
+
+    .full-width, .full-cover { position: absolute; left: 0; right: 0; width: 100%; }
+    .full-cover { height: 100%; object-fit: cover; }
+
+    .bottom-caption {
+      font-size: var(--step-s2); font-style: italic;
+      text-align: left; align-self: end;
+      z-index: 1; opacity: 0.75;
+      background-color: #0008; padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    .text-sig {
+      text-align: right;
+      margin: 2ex 1em 3em 1em;
+      font-style: italic;
+    }
+
+    .download-link {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--fgcolor);
+      border: 3px solid var(--hicolor); border-radius: 20px;
+      font-size: 82.5%;
+      padding: 1ex 2em;
+    }
+    .download-link:hover, .download-link:active { background-color: var(--hicolor); }
+
+    .hacked-long-caption { width: min(100%, 80ch); }
+    @media (max-width: 50ch) {
+      .hacked-long-caption { line-height: 1.75ex; width: min(100%, 70ch); }
+      .hacked-long-caption > span:not(:first-child) { font-size: 82.5%; }
+    }
+
+  </style>
+</head>
+
+<body><div class="swiper"><div class="swiper-wrapper">
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO</li></ul>
+  <div style="position: relative; top: -20px; font-size: 20vw; font-weight: bolder;
+              overflow-y: hidden; color: var(--hicolor); line-height: 18vw;"
+       >EL<br>TURCO</div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
+  <div class="huger hilite">
+    <p style="font-size: 125%;">INTERACTIVE LIVE DIALOGUES<br>HUMAN vs AI MACHINE</p>
+    <p style="font-size: 125%;">An Artwork by Diemut Strebe</p>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
+  <div class="bigger hilite">
+    <p class="normal">In collaboration with:</p>
+    <p>
+      <span class="nowrap">Eli Barzilay,</span>
+      <span class="nowrap">Zhiling Huang,</span>
+      <span class="nowrap">Xiangqing Guan,</span>
+      <span class="nowrap">Jianchi Zhou,</span>
+      <span class="nowrap">Hongyin Luo</span>
+    </p>
+    <p>Northeastern University</p>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / View</li></ul>
+  <div class="full-width">
+    <img src="img/intro.jpg" style="width: 100%;"
+         title="El Turco over museum couch"
+         srcset="img/intro-480w.jpg 480w, img/intro-640w.jpg 640w, img/intro-960w.jpg 960w, img/intro-1200w.jpg 1200w" />
+    <p class="bottom-caption">El Turco / Living Theater / Still of Live Dialogue</p>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Concept</li></ul>
+  <div class="long-contents left">
+    <h1>EL TURCO</h1>
+    <p>
+      El Turco presents a large-scale (8x3m) interactive video installation in
+      real time. We see two digital AI avatars in animated hand-drawing
+      aesthetics projected at the two sides of a screen. Their spoken dialogue
+      appears as continuously evolving text at the center screen.
+    </p><p>
+      One of the avatars, called Socrates, (to the right) is operated directly
+      and live by a human hidden in the system. The setup is similar to the
+      “Mechanical Turk”, an automated chess player that surprised the 18th
+      century aristocrat courts, but later appeared to hide a human player. Von
+      Kempelen seems to evoke allusions to what French philosopher Jean
+      Baudrillard describes as a simulacrum: a system that generates a world of
+      symbols and signs without any original reference. Despite the machine
+      displaying impressive and surprising capabilities in mimicking knowledge
+      and understanding, the effortless “talking machine” seems to reveal
+      itself as quite an advanced computational “magician’s trick”, though the
+      discussion about the machine’s degree of intelligence is controversial.
+    </p><p>
+      Other than a “text-only module” the presented interactive
+      live-conversations provide a 360-degree view on the avatar giving much
+      more insight in how the machine and its modules work. Any flaw suspends
+      the illusion of intelligence, every success nourishes it. But if working
+      perfectly, what does it allow for to really state about the machine’s
+      true intelligence and what to say about our own? In any case we seem to
+      be compelled to rethink our definitions and perspectives on human and
+      machine intelligence.
+    </p><p>
+      Next to the video series of live recorded dialogues called El Turco /
+      Conversations with an AI (using a customized chat version of GPT-3) El
+      Turco / Living Theater enables the audience to explore any latest version
+      in Large Language Model technology in a live theater performance played
+      by an actor. The figure of Socrates will be displayed in different gender
+      and race formats.
+    </p><p>
+      Due to the artwork’s interactive live interface, the audience can also be
+      invited to talk with the AI machine directly by operating the right
+      avatar.
+    </p>
+    <div class="text-sig">Diemut Strebe, 2023</div>
+    <a target="_blank" href="img/Concept.pdf" class="download-link">
+      concept
+    </a>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / Live#1</li></ul>
+  <div class="full-width">
+    <v>gYdMlVDvnXU::1280 / 299::EL TURCO / Living Theater #1 — INTERACTIVE LIVE DIALOGUE HUMAN vs AI MACHINE</v>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / Live#2</li></ul>
+  <div class="full-width">
+    <v>7vKPwrDGEKg::1280 / 299EL TURCO / Living Theater #2 — INTERACTIVE LIVE DIALOGUE HUMAN vs AI MACHINE</v>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / Live#3</li></ul>
+  <div class="full-width">
+    <v>v8t8irbrFqk::1280 / 299::EL TURCO / Living Theater #3 — INTERACTIVE LIVE DIALOGUE HUMAN vs AI MACHINE</v>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / Live#4</li></ul>
+  <div class="full-width">
+    <v>dWDiDDLMdjI::1280 / 299::EL TURCO / Living Theater #4 — INTERACTIVE LIVE DIALOGUE HUMAN vs AI MACHINE</v>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater / Live#5</li></ul>
+  <div class="full-width">
+    <v>KeqbN_BxOMI::1280 / 299::EL TURCO / Living Theater #5 — INTERACTIVE LIVE DIALOGUE HUMAN vs AI MACHINE</v>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
+  <img src="img/live-view.jpg" class="full-width"
+       title="Live conversation of a person from the audience"
+       srcset="img/live-view-480w.jpg 480w, img/live-view-640w.jpg 640w, img/live-view-960w.jpg 960w" />
+  <p class="bottom-caption hacked-long-caption">
+    Live conversation of a person from the audience with the AI machine on the
+    left. She is operating and controlling the right avatar's text and movement
+    directly and instantaneously via a microphone. The speaker therefore talks
+    directly through the avatar.
+  </p>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Technical</li></ul>
+  <img src="img/face-capture-still.jpg" class="full-cover" style="object-position: 30% 50%;"
+       title="Face capture on a phone"
+       srcset="img/face-capture-still-480w.jpg 480w, img/face-capture-still-640w.jpg 640w, img/face-capture-still-960w.jpg 960w, img/face-capture-still-1200w.jpg 1200w" />
+  <p class="bottom-caption">El Turco / Living Theater / Face Capture Still</p>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Technical</li></ul>
+  <div class="full-width">
+    <v>V25qy9y4HpY::576 / 1024::Live Face Capture EL TURCO : Living Theater - LIVE DIALOGUE HUMAN vs AI MACHINE</v>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Technical</li></ul>
+  <div class="long-contents left">
+    <h1>Technical Description of the Live Dialogue System</h1>
+    <p>
+      The avatar called Socrates, (to the right, presented in different gender and racial
+      formats) is operated directly and live by a human hidden in the system. The actor’s
+      face is captured through a geometrical smart grid and mapped onto the avatar’s
+      face. An attached live data stream application enables the actor to operate the
+      avatar directly and in real time, generating a lifelike mimicry of human expressions
+      on the avatar’s face. The actor’s spoken words then trigger a pre-encoded pipeline of
+      multiple AI components to enable a live conversation: The human voice output is
+      converted simultaneously into text which prompts the second avatar, named von
+      Kempelen. Von Kempelen is creating text through a natural language processing AI
+      system. We use statistical based probabilistic language models called Large
+      Language Models to generate text (such as the GPT series or PaLM 2 and others).
+      The text is simultaneously converted into audio. Through an audio-to-face AI
+      module, von Kempelen’s machine-generated audio output also operates his own lip
+      sync, gestures, facial expressions, and body movements.
+    </p>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
+  <img src="img/socrates-1.jpg" class="full-width"
+       style="object-fit: cover; width: 80%; margin: 0 auto;"
+       title="One of the Socrates 3d models"
+       srcset="img/socrates-1-480w.jpg 480w, img/socrates-1-640w.jpg 640w" />
+  <p class="bottom-caption">Socrates</p>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
+  <img src="img/socrates-2.jpg" class="full-width"
+       style="object-fit: cover; width: 80%; margin: 0 auto;"
+       title="One of the Socrates 3d models"
+       srcset="img/socrates-2-480w.jpg 480w, img/socrates-2-640w.jpg 640w" />
+  <p class="bottom-caption">Socrates</p>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
+  <img src="img/socrates-3.jpg" class="full-width"
+       style="object-fit: cover; width: 80%; margin: 0 auto;"
+       title="One of the Socrates 3d models"
+       srcset="img/socrates-3-480w.jpg 480w, img/socrates-3-640w.jpg 640w" />
+  <p class="bottom-caption">Socrates</p>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Living Theater</li></ul>
+  <img src="img/von-kempelen.jpg" class="full-width"
+       style="object-fit: cover; width: 80%; margin: 0 auto;"
+       title="The Von Kempelen 3d model"
+       srcset="img/von-kempelen-480w.jpg 480w, img/von-kempelen-640w.jpg 640w" />
+  <p class="bottom-caption">Von Kempelen</p>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / On AI</li></ul>
+  <div class="long-contents left">
+    <h1>
+      Some thoughts on the current state of AI Large Language Models and AI
+      technology in general
+    </h1>
+    <p>
+      Although the current AI Large Language Models generate representations of
+      semantic dimensions, at this point within the accelerating development of
+      AI technology the machines seem to hold no conceptual understanding of
+      language nor the world. Nevertheless, renowned AI specialists are
+      claiming Large Language Models as GPT-4 can perform simple reasoning.
+      Predicting the next word still seems far removed from consistent
+      realistic or hypothetical modeling, critical and strategic thinking or
+      drawing logical and causal inferences for example, which allows us to
+      extract meaning in so many intricate ways instead of being exposed to
+      showers of noise. Nevertheless, the increasing level of coherence in
+      Large Language Models can present a forceful challenge for our ability to
+      even discriminate between true and false, not even considering additional
+      social disruption and change that comes with the technology.
+    </p><p>
+      In addition: who codes into the machine what is true and false on subjects that
+      involve value statements and a specific world view? All this could implicate
+      unpredictable manipulative powers. And when considering who encodes goals and
+      motivations into machines, for example into lethal AI weapons, we could start to
+      doubt whom we must fear more — AI machines or ourselves?
+    </p><p>
+      Would additional new technology and the chaining of AI modules elevate AI results
+      to a whole new scenario of the much-discussed “singularity”? Could AI involve the
+      end of the lead of human intelligence by its manipulative omnipresence even if
+      artificial general intelligence will be just a fiction? Or will it be the most potent
+      extension of man’s technological grip on the world, that can tackle the biggest
+      problems through a vast array of application across many fields in the most
+      promising way as AI advocates like to convey? In any case AI strongly confronts us
+      with its impactful powers in practical applications and the challenge it presents to
+      rethink intelligence.
+    </p>
+    <div class="text-sig">DS, 2023</div>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
+  <div class="huger hilite">
+    <p>EL TURCO / Conversations with an AI</p>
+    <p class="bigger">by</p>
+    <p>Diemut Strebe</p>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
+  <div class="normal hilite">
+    <p>In collaboration with:</p>
+    <p class="bigger">
+      AI Specialist <span class="nowrap">Steve DiPaola:</span><br>
+      AI drawing & languages systems
+    </p>
+    <p><span class="nowrap">Gaines Semler:</span> voice-acting Socrates</p>
+    <p>
+      With many thanks to <span class="nowrap">Gary Marcus</span> for AI
+      consulting and to the <span class="nowrap">Aichi Triennale</span> for
+      their support.
+    </p>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO</li></ul>
+  <div class="contents left">
+    <h1>Conversations with an AI</h1>
+    <p>
+      <em>Conversations with an AI</em> are 17 live recorded
+      dialogues of the artist with an AI text generating machine in the summer
+      of 2022 (a customized GPT3 chat version). They are inspired by Plato’s
+      Theaetetus, experimental concepts, and reflections on the human
+      conditions.
+    </p><p>
+      The artwork was presented in the Aichi Triennale, Japan in 2022.
+    </p>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
+  <img src="img/inst-1.jpg" class="full-width"
+       title="Installation View at Aichi Triennale 2022"
+       srcset="img/inst-1-480w.jpg 480w, img/inst-1-640w.jpg 640w, img/inst-1-960w.jpg 960w, img/inst-1-1200w.jpg 1200w" />
+  <p class="bottom-caption">
+    Installation View at Aichi Triennale 2022.
+  </p>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
+  <img src="img/inst-2.jpg" class="full-width"
+       title="Installation View at Aichi Triennale 2022"
+       srcset="img/inst-2-480w.jpg 480w, img/inst-2-640w.jpg 640w, img/inst-2-960w.jpg 960w, img/inst-2-1200w.jpg 1200w" />
+  <p class="bottom-caption">
+    Installation View at Aichi Triennale 2022.
+  </p>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO / Conversations with an AI</li></ul>
+  <div class="long-contents">
+    <h1>Collection of 9 dialogues of 17</h1>
+    <v>nNo0PEK_JNo::1280 / 336::#4</v>
+    <v>wBpcQXlIC5k::1280 / 336::#2</v>
+    <v>Jhq3n0xeVcg::1280 / 336::#10</v>
+    <v>SL60gre7ve4::1280 / 336::#15</v>
+    <v>vHP5cKbza-0::1280 / 336::#9</v>
+    <v>K5Blpo8tPn8::1280 / 336::#8</v>
+    <v>hgWzQzJuMK4::1280 / 336::#6</v>
+    <v>RkyMGpQ6Wrw::1280 / 336::#16</v>
+    <v>RRzyDwrs_g8::1280 / 336::#14</v>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO</li></ul>
+  <div class="long-contents left">
+    <h1>Artist</h1>
+    <img src="img/artist-web.jpg" style="float: right; width: 50%; margin: 20px;"
+         title="Picture of the artist"
+         srcset="img/artist-web-480w.jpg 480w, img/artist-web-640w.jpg 640w, img/artist-web-960w.jpg 960w, img/artist-web-1200w.jpg 1200w" />
+    <p>
+      I am a German-American, US-Based artist, working with different international
+      institutions, but mostly with MIT faculty. At MIT I have been Artist in
+      Residence from 2017-2019.
+    </p><p>
+      My works link art and science to address contemporary issues, often
+      incorporating themes related to philosophy and literature. I explore the
+      crossover between science and art through media such as living biological
+      materials, nanomaterials, algorithms & numbers, experimental setups and
+      installations. This practice includes scientific concepts, methods and
+      tools, engaging with science directly. The collaborations with scientists
+      take place for example in the fields of human and plant-genetics,
+      quantum- and astrophysics, AI, math and various types of engineering. The
+      heterogeneous appearance of my works, results from the variety of topics
+      and strands in science I deal with.
+    </p><p>
+      Focused on the advanced science of our era, I feel compelled to re-affirm
+      the Romantic paradigm of “the new” as well as the role of avant-garde art
+      relating to radical experiments of Classical Modern Art throughout the
+      medium and its combination with the arts.
+    </p>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO</li></ul>
+  <div class="long-contents left">
+    <h1>Collaborators</h1>
+    <dl>
+      <dt>Eli Barzilay, PhD</dt>
+      <dd>
+        Hacker, Teacher, Programmer; Northeastern University;
+        <a href="https://barzilay.org/" target="_blank">website</a>.
+      </dd>
+      <dt>Steve DiPaola, PhD, Prof</dt>
+      <dd>
+        School of Interactive Arts & Technology (SIAT);
+        Past Director: Cognitive Science Program at Simon Fraser University;
+        <a href="https://ivizlab.org/" target="_blank">research site</a>;
+        <a href="https://www.dipaola.org/art/" target="_blank">artwork site</a>.
+      </dd>
+      <dt>Zhiling Huang</dt>
+      <dd>
+        Northeastern University;
+        <a href="https://huang417.itch.io/" target="_blank">website</a>.
+      </dd>
+      <dt>Xiangqing Guan</dt>
+      <dd>
+        Digital kitsch maker; Northeastern University;
+        <a href="https://harryguan.work/" target="_blank">website</a>.
+      </dd>
+      <dt>Jianchi Zhou</dt>
+      <dd>
+        Northeastern University;
+        <a href="https://chici.xyz/" target="_blank">website</a>.
+      </dd>
+      <dt>Hongyin Luo</dt>
+      <dd>Massachusetts Institute of Technology.</dd>
+      <dt>Gaines Semler</dt>
+      <dd>
+        is a Brooklyn-based actor, writer, and filmmaker. He graduated with a
+        BFA in performing arts from the Savannah College of Art and Design. His
+        specialities include voice acting, classical theatre, and sketch
+        comedy.
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<div class="swiper-slide">
+  <ul class="header"><li>Diemut Strebe /</li><li>EL TURCO</li></ul>
+  <div class="contents">
+    <h1>Contact</h1>
+    <p>
+      <a href="mailto:dstr.site@gmail.com">dstr.site@gmail.com</a>
+    </p>
+  </div>
+</div>
+
+</div></div>
+<div id="pagination" class="swiper-pagination"></div>
+</body>
+
+<script>
+  const isMobile = !matchMedia("(any-pointer:fine)").matches;
+  // make up slide numbers
+  document.querySelectorAll("div.swiper-slide").forEach((d, n) => d.dataset.hash = n + 1);
+  // convert <v>s to full <lite-youtube>s
+  document.querySelectorAll("v").forEach(v => {
+    const yt = document.createElement("lite-youtube");
+    const addAttr = (key, val, rx = null) =>
+      !yt.hasAttribute(key) && (!rx || val.match(rx)) && (yt.setAttribute(key, val), true);
+    v.textContent.split(/\s*::\s*/).forEach(t =>
+      addAttr("aspectratio", t, /^\d+\s*\/\s*\d+$/)
+      || addAttr("videoid", t, /^[a-zA-Z0-9_-]{11,}$/)
+      || addAttr("videotitle", t)
+      || (()=>{ throw Error(`Unknown part of <v>: ${t}`) })());
+    addAttr("params", "rel=0&enablejsapi=1");
+    addAttr("posterquality", "maxresdefault");
+    addAttr("nocookie", "nocookie");
+    v.parentNode.replaceChild(yt, v);
+  });
+  // if we have a mouse => mark all text nodes to not be swipable
+  if (!isMobile) {
+    const skip = "HEAD TITLE STYLE SCRIPT".split(/\s+/);
+    const walker = document.createTreeWalker(
+      document, NodeFilter.SHOW_TEXT, node =>
+      (skip.includes(node.parentElement?.tagName) || !node.data.match(/\S/))
+        ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT);
+    let n;
+    while (n = walker.nextNode()) {
+      const span = document.createElement("span");
+      span.className = "swiper-no-swiping";
+      n.parentElement.replaceChild(span, n);
+      span.appendChild(n);
+    }
+  }
+  // pause all videos whenever a slide changes
+  const pause = JSON.stringify({ event: "command", func: "pauseVideo", args: "" })
+  slideChange = () =>
+    document.querySelectorAll("lite-youtube").forEach(x =>
+      x.shadowRoot && x.shadowRoot.querySelectorAll("iframe").forEach(x =>
+        x.contentWindow.postMessage(pause, "*")));
+  //
+  const swiper = new Swiper(".swiper", {
+    createElements: true,
+    navigation: true,
+    scrollbar: true,
+    pagination: { el: "#pagination", clickable: true },
+    keyboard: { enabled: true, pageUpDown: false },
+    centeredSlides: true,
+    touchAngle: 15,
+    longSwipesRatio: 0.25,
+    simulateTouch: !isMobile,
+    cssMode: isMobile, // makes scrolling up/down and slides sane
+    hashNavigation: { enabled: true, replaceState: true, watchState: true, },
+    initialSlide: 0,
+    // effect: "fade",
+    on: { slideChange },
+  });
+</script>
+
+</html>

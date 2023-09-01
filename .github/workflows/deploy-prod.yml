@@ -27,11 +27,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Generate all image sizes
-        run: ./new/img/make-sizes
+        run: ./img/make-sizes
       - name: Deploy to FTP server
         run: |
-          cd new
-          ncftpput -u "$FTP_USER" -p "$FTP_PASSWD" -m -T xfer- -R "$FTP_HOST" /new *
+          ncftpput -u "$FTP_USER" -p "$FTP_PASSWD" -m -T xfer- -R "$FTP_HOST" / *
         env:
           FTP_HOST:   ${{ secrets.FTP_HOST }}
           FTP_PASSWD: ${{ secrets.FTP_PASSWD }}
