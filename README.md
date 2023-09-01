@@ -29,6 +29,8 @@ The relevant URLs for the *new* contents is as follows:
 
   Can also be [triggered manually](https://github.com/diemutstr/elturco-site/actions/workflows/deploy-prod.yml).
 
-All of these URLs end with `/new` — drop that, and you'll get the old contents, until we replace that in the near future.
+All of these URLs end with `/new` — drop that, and you'll get the same contents, available on both places for a while.
+
+Add `/old` instead, to get the old site.
 
 The two automated actions have their status badges at the top of this text.
